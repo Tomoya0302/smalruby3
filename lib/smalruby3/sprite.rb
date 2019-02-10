@@ -33,6 +33,7 @@ module Smalruby3
     attr_reader :rotation_style
     attr_reader :variables
     attr_reader :lists
+    attr_reader :original
 
     attr_accessor :event_handlers
     attr_accessor :threads
@@ -48,6 +49,7 @@ module Smalruby3
       @y = 0
       @costumes = []
       @current_costume = 0
+      @original = true
 
       @vector = { x: 1, y: 0 }
       @event_handlers = {}

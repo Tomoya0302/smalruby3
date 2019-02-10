@@ -8,7 +8,7 @@ module Smalruby3
         h = EventHandler.new(self, options, &block)
         @event_handlers[event] << h
       end
-      
+
       def broadcast(message)
         raise NotImplementedError, "not implemented: broadcast(#{message.inspect})"
       end
