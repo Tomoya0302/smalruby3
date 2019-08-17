@@ -43,11 +43,11 @@ module Smalruby3
         if option == "_myself_"
           # 自分自身のコピーをつくる
           cloned = clone
+          cloned.instance_variable_set("@original", false)
           # 自分自身がつくったものや、お願いしたこともコピーする
           cloned.instance_variable_set("@dxruby_sprite", DXRuby::Sprite.new(0, 0))
           cloned.send(:sync_costumes)
         end
-        cloned.name += rand(1000000).to_s
         World.instance.add_target(cloned)
       end
 

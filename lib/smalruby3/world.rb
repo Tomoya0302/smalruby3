@@ -24,11 +24,13 @@ module Smalruby3
         @stage = stage
       else
         sprite = stage_or_sprite
-        if @name_to_sprite.key?(sprite.name)
-          raise ExistSprite.new(sprite)
+        if sprite.original
+          if @name_to_sprite.key?(sprite.name)
+            raise ExistSprite.new(sprite)
+          end
+          @name_to_sprite[sprite.name] = sprite
         end
         @sprites << sprite
-        @name_to_sprite[sprite.name] = sprite
       end
       stage_or_sprite
     end
